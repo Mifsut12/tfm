@@ -1,0 +1,192 @@
+/* Reset */
+
+html{
+    box-sizing: border-box;
+}
+
+*,*::after,*::before{
+    box-sizing: inherit;
+}
+
+/* Variables */
+
+:root{
+    --colorDeFondo: #900;
+    --colorDeTexto: #FFF;
+    --tamLetraGrande: 3rem;
+    --tamLetraMediano: 2rem;
+    --tamLetraChico: 1.2rem;
+}
+
+/* CSS del header y del footer al ser identicos*/
+
+.header, footer{
+    background-color: var(--colorDeFondo);
+    margin: 5vh 5% 5vh 5%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    color: var(--colorDeTexto);
+}
+
+
+.header-h1, .footer-h2{
+    line-height: 75%;
+}
+
+/* Hacer que la primera letra sea más grande */
+.header-h1::first-letter, .footer-h2::first-letter{
+    font-size: var(--tamLetraGrande);
+   
+}
+/* Aplicar espacios  */
+span{
+    display: block;
+}
+
+
+.header-h1-span, .footer-h2-span {
+    margin: 0 0 0 25%
+}
+
+
+.header-nav-ul{
+    list-style: none;
+    margin: 10% 0 0 0
+}
+
+/* Hacer que los elemntos de navegación se muestren como una lista */
+.header-nav-ul-li{
+    display: inline;
+    
+}
+
+a{
+    color: var(--colorDeTexto);
+}
+
+/* Cambiar el color del texto para facilitar la navegación */
+a:visited{
+    color:var(--colorDeTexto);
+}
+
+/* Sección del header finalizada */
+
+
+/* Sección del main */
+
+.main{
+    background-color: var(--colorDeFondo);
+    margin: 5vh 5% 5vh 5%;
+    max-width: 100%;
+}
+
+/* Centrarlo todo */
+.main-quienesSomos{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    color:var(--colorDeTexto)
+}
+
+/* Tamaño de los subtitulos */
+.main-quienes-somos-h2, .main-valoraciones-h2{
+    font-size: var(--tamLetraGrande);
+}
+
+.main-quienes-somos-p{
+    max-width: 80%;
+    font-size: var(--tamLetraChico);
+}
+
+/* Sección de las valoraciones */
+.main-valoraciones{
+    
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    color:var(--colorDeTexto);
+    max-width:100%;
+}
+
+.main-valoraciones-h3{
+    font-size: var(--tamLetraMediano);
+}
+
+.main-valoraciones-p{
+    max-width: 80%;
+    font-size: var(--tamLetraChico);
+}
+/* Tabla */
+th,td{
+    border: thin solid white;
+}
+
+.main-valoraciones-2{
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto;
+  
+}
+
+.main-valoraciones-tablas{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 5vh 5% 
+}
+
+
+.main-valoracion{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.main-valoracion-final{
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    
+}
+
+
+/* Sección del formulario */
+label{
+    display: block;
+}
+
+.div-contacte{
+    color:var(--colorDeTexto);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.div-contacte-h3{
+    font-size: var(--tamLetraMediano);
+    text-align: center;
+}
+
+.div-contacte-p{
+    
+    text-align: center;
+}
+
+
+.div-contacte-form{
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: white;
+    max-width: 100%;
+    color: black;
+    border-bottom: var(--colorDeFondo ) solid thin;
+}
+
+/* 535px */

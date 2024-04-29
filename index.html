@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valora Videojuegos</title>
+    <!-- Enlazar a archivos css externo -->
+    <link rel="stylesheet" href="estilos/estilos.css">
+    <!-- Cargar fichero js una vez cargado el html -->
+    <script src="js/js.js" defer></script>
+</head>
+<body>
+    <!-- Estructura del HTML,(DESKTOP) -->
+    
+        <!-- Nav con sección de navegación a todos los elementos de la página -->
+    <!-- Main con dos secciones
+        Una texto informativo
+        Los videojuegos con su valoración, cada videojuego es un enlace que lleva a otra página con más información sobre el mismo, habra un breve aside para la última valoración.
+    Form , sección dedicada al formulario de "SUBSCRIPCIÓN"
+
+    FOOTER,derechos de autor más otro elemento de navegación.
+
+    (MOVÍL)
+    El listado de videojuegos sera una lista en vez de rejillas 2x2
+    -->
+
+    <!-- La estructura sera realizada con escritorio por defecto -->
+
+    <!-- Header -->
+
+    <header id = "header" class="header">
+        <h1 class="header-h1">
+            <span>Valora</span> 
+            <span class = "header-h1-span">ideojuego</span>
+        </h1>
+
+        
+
+        <nav class="header-nav">
+            <ul class="header-nav-ul">
+                <li class="header-nav-ul-li"><a href="#quienes-somos">¿Quienes somos?</a></li>
+                <li class="header-nav-ul-li"><a href="#valoraciones">Nuestras valoraciones</a></li>
+                <li class="header-nav-ul-li"><a href="#suscribete">Suscribete</a></li>
+
+                <a href="/reviews/Mario_Odyssey.html" target="_blank" >Hola</a>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <main class = "main">
+        <div id = "quienes-somos" class="main-quienesSomos">
+            <h2 class="main-quienes-somos-h2">
+                ¿Quienes somos?
+            </h2>
+    
+            <p class = "main-quienes-somos-p">Somos una empresa formada por gente con experiencia en varias disciplinas del mundo de los videojuegos reunidos para poder transmitiros nuestra opinión de los videojuegos. Los gamers queremos disfrutar al máximo nuestras partidas pero a veces no sabemos que videojuegos pueden lograr ese cometido. Por eso estamos aqui, para poder daros nuestra opinión sobre los videojuegos mas relevantes de la actualidad para ayudaros en vuestra decisión de si algun videojuego es el apropiado para vosotros. </p>
+        </div>
+
+
+        <div class="main-valoraciones" id = "valoraciones">
+            <h2 class="main-valoraciones-h2">Nuestras valoraciones</h2>
+            <p class="main-valoraciones-p">Nuestro sistema de evaluación trata de abarcar todos los aspectos de un videojuego para intentar dar la información más relevante a cada usuario. Lo que evaluaremos aqui es los siguiente:</p>
+            <ul>
+                <li>Jugabilidad: ¿Cómo es la experiencia en general</li>
+                <li>Controles: ¿Los controles son intuitivos y faciles de dominar</li>
+                <li>Gráficos: ¿Cómo se ve el videojuego?</li>
+                <li>Dificultad: ¿El videojuego es dificil para el público en general?</li>
+            </ul>
+
+            <h3 class = "main-valoraciones-h3">Valoraciones de videojuegos</h3>
+            <p class = "main-valoraciones-p">Aqui os mostraremos las puntuaciones de 1 a 100 de cada videojuego, si estuvierais interesados en ellos pinchan en el nombre del juego para un analisis más detallado
+            </p>
+            
+
+            <div class="main-valoraciones-2">
+                
+                <!-- Cada valoración se rellenara via js se isaram los ids para obtenerlos en el js-->
+               
+                <div class="main-valoraciones-tablas" id = "tablas">
+
+                
+                </div>
+                <div class="main-valoracion-final" id = "ultima_valoracion">
+                    
+                    
+                </div>
+            </div>
+
+            
+        </div>
+
+
+        <div class="div-contacte" id = "suscribete">
+            <h3 class = "div-contacte-h3">Suscribete</h3>
+            <p class = "div-contacte-p">¿Te han gustado nuestras valoraciones? ¿Te interesaria estar al tanto de cuando publiquemos una valoración de algún tipo de juego?Rellena este formulario y te notificaremos cuando una nueva valoración de un juego que pueda interesarte este disponible.
+            </p>
+            <!-- Creación de un formulario -->
+            <form  class = "div-contacte-form" action="#">
+                <label>Correo electrónico *<input type="email" name="email" id="email" placeholder="(correo@gmail.com)"></label> 
+                <label for="tipos">Selecciona los tipos de juego que te interesan</label>
+                <label>RPG <input type="checkbox" name="RPG" id="RPG"></label>
+                <label>Estrategia <input type="checkbox" name="Estrategia" id="Estrategia"></label>
+                <label>Aventura <input type="checkbox" name="Aventura" id="Aventura"></label>
+                <label>Acción <input type="checkbox" name="Acción" id="Acción"></label>
+                <label>Plataforma <input type="checkbox" name="Plataforma" id="Plataforma"></label>
+                <label>Rol <input type="checkbox" name="Rol" id="Rol"></label>
+                <input type="submit" value="Enviar datos" id = "submit">
+                <p class = "form_p"> * = Campo obligatorio</p>
+            </form>
+            
+        </div>
+
+
+    
+
+
+    </main>
+<!-- Pie de página -->
+    <footer class = "footer">
+        <h2 class="footer-h2">
+            <span>Valora</span> 
+            <span class = "footer-h2-span">ideojuego</span>
+        </h2>
+
+        <nav class = "footer-nav">
+            <ul class="header-nav-ul">
+                <li class="header-nav-ul-li"><a href="#quienes-somos">¿Quienes somos?</a></li>
+                <li class="header-nav-ul-li"><a href="#valoraciones">Nuestras valoraciones</a></li>
+                <li class="header-nav-ul-li"><a href="#suscribete">Suscribete</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
