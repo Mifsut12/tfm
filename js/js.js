@@ -189,7 +189,7 @@ if(videojuegos.length != 0){
                 <td>${puntuacionVideojuegoFinal}</td>
             </tr>
         </table>
-        <a href='/reviews/${nombreLinkUltimoJuego}.html' target="_blank">Valoración completa</a>
+        <a href='/tfm.io/reviews/${nombreLinkUltimoJuego}.html' target="_blank">Valoración completa</a>
     `
 
 //Caso de que no haya videojuegos
