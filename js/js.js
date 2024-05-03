@@ -138,7 +138,7 @@ if(videojuegos.length != 0){
                 <td>${listaPuntuacionMedia[i]}</td>
             </tr>
         </table>
-        <a href='/reviews/${nombreLink}.html' target="_blank">Valoración completa</a>
+        <a href='/tfm.io/reviews/${nombreLink}.html' target="_blank">valoración completa</a>
 
         </div>` 
     })
