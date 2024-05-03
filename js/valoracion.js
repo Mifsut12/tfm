@@ -1,3 +1,4 @@
+//Valoraciones de los videojuegos
 let videojuegosCompleto = [
     {
         nombre: "Mario_Odyssey",
@@ -64,7 +65,7 @@ let videojuegosCompleto = [
     },
 ]
 
-
+//Puntuación de los videojuegos
 let videojuegos = [
     {
         nombre: "Mario_Odyssey",
@@ -132,7 +133,7 @@ let videojuegos = [
 ]
 
 
-
+let titulo = document.getElementById("titulo")
 
 //Encontrar el juego a valorar en base a la url.
 
@@ -143,22 +144,62 @@ let url = document.URL
 
 let enlace = url.split("/");
 
-//Obtengo el nombre.html del juego, se lo quito
+//Obtengo el nombre.html del juego, el primer elemento es el nombre del juego
 let nombre = enlace[enlace.length - 1].split(".")[0]
 
+//La primera letra del nombre estara en minúscula, se debe poner en mayuúucula
+
+let letraInicio = nombre.charAt(0)
+
+//Obtener el resto del nombre
+
+const nombreSinInicio = nombre.substring(1)
+
+//Convertir a mayuscula
+letraInicio = letraInicio.toUpperCase();
+
+//Resultado final
+nombre = letraInicio + nombreSinInicio
 
 //Obtener las valoraciones del juego
 let juego = videojuegosCompleto.find((juego) => juego.nombre === nombre)
-let valoracion = videojuegos.find((juego) => juego.nombre === nombre)
+//Control de errores
+if(juego === false){
+    titulo.innerHTML += `No hay valoración disponible para el juego con nombre ${nombre}`
+}else{
+    let valoracion = videojuegos.find((juego) => juego.nombre === nombre)
 
 
 
 let media = (valoracion.controles + valoracion.dificultad + valoracion.jugabilidad + valoracion.graficos) / 4
 
+//Buscar los elementos del dom 
+let jugabilidad = document.getElementById("jugabilidad")
+let controles = document.getElementById("controles")
+let graficos = document.getElementById("graficos")
+let dificultad = document.getElementById("dificultad")
+let puntuacionFinal = document.getElementById("puntuacion_final")
+
+//Rellenar el html
+titulo.innerHTML += `${nombre}`
+
+jugabilidad.innerHTML += `
+<p>${juego.jugabilidad}
+<p>Puntación: ${valoracion.jugabilidad}`
+
+controles.innerHTML += `
+<p>${juego.controles}
+<p>Puntación: ${valoracion.controles}`
+
+graficos.innerHTML += `
+<p>${juego.graficos}
+<p>Puntación: ${valoracion.graficos}`
+
+dificultad.innerHTML += `
+<p>${juego.dificultad}
+<p>Puntación: ${valoracion.dificultad}`
 
 
-
-
-
-
-
+puntuacionFinal.innerHTML += `
+<h2>${media}`
+}   

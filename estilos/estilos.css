@@ -190,3 +190,20 @@ label{
 }
 
 /* 535px */
+
+/* Versión de movil */
+
+
+@media screen and (min-width: 300px) and (max-width: 535px){
+
+    /* Las tablas se mostraran como listas */
+    .main-valoraciones-2{
+        display: flex;
+        flex-flow: column-reverse;
+    }
+
+    .main-valoraciones-tablas{
+        display: flex;
+        flex-flow: column;
+    }
+}

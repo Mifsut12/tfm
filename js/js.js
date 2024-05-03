@@ -1,4 +1,5 @@
 //Aqui se cargarian los datos de los juegos y estos serian insertados en el html.
+ //Buscar el nodo del dom a rellenar
 let tablas = document.querySelector("#tablas")
 //Un array de videojuegos
 
@@ -67,119 +68,129 @@ let tablas = document.querySelector("#tablas")
         
      },
  ]
-
+//Control de errores
 if(videojuegos.length != 0){
     //Calculo de la media para la puntuación final de cada videojuego
 
-let listaPuntuacionMedia = [];
+    let listaPuntuacionMedia = [];
 
 
-//Rellenar ese arraigo
-videojuegos.forEach(function(videojuego,i){
-    let media = 0
-    media = (videojuegos[i].jugabilidad + videojuegos[i].controles + videojuegos[i].graficos + videojuegos[i].dificultad) / 4
-    listaPuntuacionMedia.push(media)
-})
+    //Rellenar ese arraigo
+    videojuegos.forEach(function(videojuego,i){
+        let media = 0
+        //Cálculo de media
+        media = (videojuegos[i].jugabilidad + videojuegos[i].controles + videojuegos[i].graficos + videojuegos[i].dificultad) / 4
+        listaPuntuacionMedia.push(media)
+    })
 
-//Obtener el ultimo videojuego de la lista(Este en teoría es la última valoración)
-const ultimoVideojuego = videojuegos.pop()
-//Obtener la puntuación del ultimo videojuego.
-const puntuacionVideojuegoFinal = listaPuntuacionMedia.pop()
-
-
-
-
-//Ya se tienen todos los datos de los videojuegos, se procede a rellenar el html.
-
-//Buscar el tag a rellenar.
+    //Obtener el ultimo videojuego de la lista(Este en teoría es la última valoración)
+    const ultimoVideojuego = videojuegos.pop()
+    //Obtener la puntuación del ultimo videojuego.
+    const puntuacionVideojuegoFinal = listaPuntuacionMedia.pop()
 
 
 
-videojuegos.forEach(function(videojuego, i){
+
+    //Ya se tienen todos los datos de los videojuegos, se procede a rellenar el html.
+
+   
 
 
-    tablas.innerHTML += `<div class="main-valoracion">
-    <p> ${videojuegos[i].nombre}</p>
-    <p class="main-valoracion-tablas-p">Tipo:${videojuegos[i].tipo}</p>
-    <p> Duración: ${videojuegos[i].duracion}
+
+    videojuegos.forEach(function(videojuego, i){
+
+        //Poner la primera letra en minuscula para crear los enlaces a las valoraciones.
+        //Obtener la primera letra, convertirla a minuscula, obtener el resto del nombre y concatenarlos
+        let nombreLink = videojuegos[i].nombre.charAt(0).toLowerCase() + videojuegos[i].nombre.substring(1);
+
+        tablas.innerHTML += `<div class="main-valoracion">
+        <p> ${videojuegos[i].nombre}</p>
+        <p class="main-valoracion-tablas-p">Tipo:${videojuegos[i].tipo}</p>
+        <p> Duración: ${videojuegos[i].duracion}
+        <table>
+            <tr>
+                <th>Aspecto</th>
+                <th>Puntuación</th>
+            </tr>
+
+            <tr>
+                <td>Jugabilidad</td>
+                <td>${videojuegos[i].jugabilidad}</td>
+            </tr>
+
+            <tr>
+                <td>Controles</td>
+                <td>${videojuegos[i].controles}</td>
+            </tr>
+
+            <tr>
+                <td>Gráficos</td>
+                <td>${videojuegos[i].graficos}</td>
+            </tr>
+            
+            <tr>
+                <td>Dificultad</td>
+                <td>${videojuegos[i].dificultad}</td>
+            </tr>
+
+            <tr>
+                <td>Puntuación final</td>
+                <td>${listaPuntuacionMedia[i]}</td>
+            </tr>
+        </table>
+        <a href='/reviews/${nombreLink}.html' target="_blank">Valoración completa</a>
+
+        </div>` 
+    })
+
+
+    //Rellena la última valoración 
+
+
+    let ultimaValoracion = document.querySelector("#ultima_valoracion")
+    let nombreLinkUltimoJuego = ultimoVideojuego.nombre.charAt(0).toLowerCase() + ultimoVideojuego.nombre.substring(1);
+
+    ultimaValoracion.innerHTML += `<h2>Valoración más reciente </h2>
+    <div class = "flecha_abajo_blanca"> <h2> &darr; </h2></div>
+
+    <p> ${ultimoVideojuego.nombre}</p>
+
+
+        <p class="main-valoracion-tablas-p">Tipo:${ultimoVideojuego.tipo}</p>
+        <p> Duración: ${ultimoVideojuego.duracion}
     <table>
-        <tr>
-            <th>Aspecto</th>
-            <th>Puntuación</th>
-        </tr>
+            <tr>
+                <th>Aspecto</th>
+                <th>Puntuación</th>
+            </tr>
 
-        <tr>
-            <td>Jugabilidad</td>
-            <td>${videojuegos[i].jugabilidad}</td>
-        </tr>
+            <tr>
+                <td>Jugabilidad</td>
+                <td>${ultimoVideojuego.jugabilidad}</td>
+            </tr>
 
-        <tr>
-            <td>Controles</td>
-            <td>${videojuegos[i].controles}</td>
-        </tr>
+            <tr>
+                <td>Controles</td>
+                <td>${ultimoVideojuego.controles}</td>
+            </tr>
 
-        <tr>
-            <td>Gráficos</td>
-            <td>${videojuegos[i].graficos}</td>
-        </tr>
-        
-        <tr>
-            <td>Dificultad</td>
-            <td>${videojuegos[i].dificultad}</td>
-        </tr>
+            <tr>
+                <td>Gráficos</td>
+                <td>${ultimoVideojuego.graficos}</td>
+            </tr>
+            
+            <tr>
+                <td>Dificultad</td>
+                <td>${ultimoVideojuego.dificultad}</td>
+            </tr>
 
-        <tr>
-            <td>Puntuación final</td>
-            <td>${listaPuntuacionMedia[i]}</td>
-        </tr>
-    </table>
-    </div>` 
-})
-
-
-//Implementar funcionalidad de ultima valoración
-
-
-let ultimaValoracion = document.querySelector("#ultima_valoracion")
-
-ultimaValoracion.innerHTML += `<h2>Valoración más reciente </h2>
-<div class = "flecha_abajo_blanca"> <h2> &darr; </h2></div>
-
-<p> ${ultimoVideojuego.nombre}</p>
-    <p class="main-valoracion-tablas-p">Tipo:${ultimoVideojuego.tipo}</p>
-    <p> Duración: ${ultimoVideojuego.duracion}
-<table>
-        <tr>
-            <th>Aspecto</th>
-            <th>Puntuación</th>
-        </tr>
-
-        <tr>
-            <td>Jugabilidad</td>
-            <td>${ultimoVideojuego.jugabilidad}</td>
-        </tr>
-
-        <tr>
-            <td>Controles</td>
-            <td>${ultimoVideojuego.controles}</td>
-        </tr>
-
-        <tr>
-            <td>Gráficos</td>
-            <td>${ultimoVideojuego.graficos}</td>
-        </tr>
-        
-        <tr>
-            <td>Dificultad</td>
-            <td>${ultimoVideojuego.dificultad}</td>
-        </tr>
-
-        <tr>
-            <td>Puntuación final</td>
-            <td>${puntuacionVideojuegoFinal}</td>
-        </tr>
-    </table>
-`
+            <tr>
+                <td>Puntuación final</td>
+                <td>${puntuacionVideojuegoFinal}</td>
+            </tr>
+        </table>
+        <a href='/reviews/${nombreLinkUltimoJuego}.html' target="_blank">Valoración completa</a>
+    `
 
 //Caso de que no haya videojuegos
 }else{

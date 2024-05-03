@@ -1,0 +1,37 @@
+html{
+    box-sizing: border-box;
+}
+
+*,*::after,*::before{
+    box-sizing: inherit;
+}
+
+/* Variables */
+
+:root{
+    --colorDeFondo: #900;
+    --colorDeTexto: #FFF;
+    --tamLetraGrande: 3rem;
+    --tamLetraMediano: 2rem;
+    --tamLetraChico: 1.2rem;
+}
+
+html{
+    text-align: center;
+}
+
+main,  footer{
+    color: var(--colorDeTexto);
+    background-color: var(--colorDeFondo);
+    margin: 5vh 10% 5vh 10%;
+}
+
+h2{
+    text-decoration: underline;
+}
+
+header{
+    background-color: #900;
+    color: var(--colorDeTexto);
+}
+
